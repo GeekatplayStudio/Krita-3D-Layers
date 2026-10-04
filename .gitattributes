@@ -1,0 +1,11 @@
+# Keep LF in the repository and in checkouts: the macOS/Linux installers break with CRLF.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.glb binary
+*.bin binary
+*.fbx binary
+*.ply binary
+*.stl binary
+*.usdz binary
+*.jpeg binary
