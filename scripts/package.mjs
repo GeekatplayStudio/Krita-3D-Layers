@@ -36,12 +36,14 @@ for (const required of ["geekatplay_3d_layers.desktop", "geekatplay_3d_layers/__
     }
 }
 const install = (name) => readFileSync(join(root, "install", name), "utf8");
+// Shell scripts must have LF endings on macOS/Linux, whatever the checkout did.
+const lf = (text) => new TextEncoder().encode(text.split("\r\n").join("\n"));
 files["Install on Windows.cmd"] = crlf(install("Install on Windows.cmd"));
 files["Uninstall on Windows.cmd"] = crlf(install("Uninstall on Windows.cmd"));
-files["Install on macOS.command"] = [new TextEncoder().encode(install("Install on macOS.command")), EXECUTABLE];
-files["Install on Linux.sh"] = [new TextEncoder().encode(install("Install on Linux.sh")), EXECUTABLE];
+files["Install on macOS.command"] = [lf(install("Install on macOS.command")), EXECUTABLE];
+files["Install on Linux.sh"] = [lf(install("Install on Linux.sh")), EXECUTABLE];
 files["install/install-windows.ps1"] = crlf(install("install-windows.ps1"));
-files["install/install-unix.sh"] = [new TextEncoder().encode(install("install-unix.sh")), EXECUTABLE];
+files["install/install-unix.sh"] = [lf(install("install-unix.sh")), EXECUTABLE];
 files["README.txt"] = crlf(install("README.txt"));
 files["LICENSE.txt"] = crlf(readFileSync(join(root, "LICENSE"), "utf8"));
 
