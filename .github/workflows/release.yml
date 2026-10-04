@@ -1,0 +1,53 @@
+# Publishes a GitHub Release when a version tag (v1.2.3) is pushed:
+#   Geekatplay-3D-Layers-Krita-<version>.zip (+ .sha256)   the plugin with its installers
+#   Geekatplay-3D-Layers-Krita.zip                          the same file under a fixed name, so
+#                                                           releases/latest/download/... always works
+# Steps: update the version (plugin __init__.py and package.json) and CHANGELOG.md, commit,
+# then `git tag v<version> && git push origin v<version>` (see docs/DEVELOPMENT.md).
+name: Release
+
+on:
+  push:
+    tags: ["v*.*.*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pytest
+      - run: npm ci
+      - name: Tag matches the plugin version
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          PKG="$(node -p "require('./package.json').version")"
+          if [ "$TAG" != "$PKG" ]; then echo "Tag v$TAG does not match package.json $PKG"; exit 1; fi
+      - name: Verify (typecheck, tests, build, package)
+        run: npm run verify
+      - name: Release notes from CHANGELOG.md
+        run: node scripts/release-notes.mjs "${GITHUB_REF_NAME#v}" > dist/release-notes.md
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          V="${GITHUB_REF_NAME#v}"
+          cp "dist/Geekatplay-3D-Layers-Krita-$V.zip" dist/Geekatplay-3D-Layers-Krita.zip
+          PRERELEASE=""
+          case "$GITHUB_REF_NAME" in *-*) PRERELEASE="--prerelease" ;; esac
+          gh release create "$GITHUB_REF_NAME" \
+            --title "Geekatplay 3D Layers for Krita $GITHUB_REF_NAME" \
+            --notes-file dist/release-notes.md \
+            $PRERELEASE \
+            "dist/Geekatplay-3D-Layers-Krita-$V.zip" \
+            "dist/Geekatplay-3D-Layers-Krita-$V.zip.sha256" \
+            dist/Geekatplay-3D-Layers-Krita.zip

@@ -44,7 +44,9 @@
 
 1. Update the version in `plugin/geekatplay_3d_layers/__init__.py` and `package.json` (the build checks they match) and describe the changes in `CHANGELOG.md`.
 2. `npm run verify` (typecheck, tests, build, package) and `python tests/krita/run.py`.
-3. Attach `dist/Geekatplay-3D-Layers-Krita-<version>.zip` and its `.sha256` to a GitHub release.
+3. Commit, then tag and push: `git tag v<version> && git push origin main v<version>`. The *Release* workflow (`.github/workflows/release.yml`) checks the tag against `package.json`, runs `npm run verify`, and publishes the release with `Geekatplay-3D-Layers-Krita-<version>.zip`, its `.sha256`, and the same ZIP as `Geekatplay-3D-Layers-Krita.zip` (the README's download button). The notes come from `CHANGELOG.md` (`scripts/release-notes.mjs`).
+
+CI (`.github/workflows/ci.yml`) runs the typecheck, the Python tests, the build and package, and installs and uninstalls the release ZIP on Linux, on every push.
 
 ## Demo assets
 

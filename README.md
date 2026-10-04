@@ -9,6 +9,18 @@
   Works with Meshy, Tripo, Hitem3D (hi3d.ai) and your own ComfyUI. Free and open source.
 </p>
 
+<p align="center">
+  <a href="https://github.com/GeekatplayStudio/Krita-3D-Layers/releases/latest/download/Geekatplay-3D-Layers-Krita.zip"><img src="https://img.shields.io/badge/Download-for%20Krita-3daee9?style=for-the-badge" alt="Download for Krita"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/GeekatplayStudio/Krita-3D-Layers/releases/latest"><img src="https://img.shields.io/github/v/release/GeekatplayStudio/Krita-3D-Layers?label=latest%20version" alt="Latest version"></a>
+  <a href="https://github.com/GeekatplayStudio/Krita-3D-Layers/actions/workflows/ci.yml"><img src="https://github.com/GeekatplayStudio/Krita-3D-Layers/actions/workflows/ci.yml/badge.svg" alt="Tests"></a>
+  <img src="https://img.shields.io/badge/Krita-5.2%20or%20newer-3daee9" alt="Krita 5.2 or newer">
+  <img src="https://img.shields.io/badge/Windows%20%7C%20macOS%20%7C%20Linux-555" alt="Windows, macOS and Linux">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license"></a>
+</p>
+
 ---
 
 ## How it works
@@ -25,7 +37,7 @@ Every model is kept in a library on your computer, so you can use it again in an
 
 You need **Krita 5.2 or newer** (Krita 6 works too) and Microsoft Edge or Google Chrome, which Windows already has.
 
-1. **Download** `Geekatplay-3D-Layers-Krita-0.1.0.zip` from the [Releases page](https://github.com/GeekatplayStudio/Krita-3D-Layers/releases/latest).
+1. **Download** [Geekatplay-3D-Layers-Krita.zip](https://github.com/GeekatplayStudio/Krita-3D-Layers/releases/latest/download/Geekatplay-3D-Layers-Krita.zip) (the latest version; all versions are on the [Releases page](https://github.com/GeekatplayStudio/Krita-3D-Layers/releases)).
 2. **Close Krita.**
 3. **Unzip** the download (right-click › *Extract All…* on Windows; double-click on a Mac) and run the installer for your computer:
 
