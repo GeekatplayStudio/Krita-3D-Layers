@@ -41,7 +41,7 @@ jobs:
           test -f "$home/.local/share/krita/pykrita/geekatplay_3d_layers/web/editor.html"
           test -f "$home/.local/share/krita/pykrita/geekatplay_3d_layers.desktop"
           grep -qx "enable_geekatplay_3d_layers=true" "$home/.config/kritarc"
-          HOME="$home" sh "$work/install/install-unix.sh" --uninstall
+          HOME="$home" XDG_DATA_HOME= XDG_CONFIG_HOME= sh "$work/install/install-unix.sh" --uninstall
           test ! -e "$home/.local/share/krita/pykrita/geekatplay_3d_layers"
           ! grep -q "enable_geekatplay_3d_layers" "$home/.config/kritarc"
       - uses: actions/upload-artifact@v4
