@@ -4,6 +4,15 @@ All notable changes. The format follows [Keep a Changelog](https://keepachangelo
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-10-04
+
+### Changed
+- The user guide is now a complete Krita guide, with step-by-step installation for Windows, macOS and Linux, Krita's own *Import Python Plugin from File*, checking the install, updating and uninstalling, and the ComfyUI / TRELLIS.2 setup.
+- The manual shown in Krita's Python Plugin Manager links to the user guide.
+
+### Fixed
+- A copy of the plugin without the built 3D editor (made from the project's source code) now says so and points to the release ZIP, instead of opening an empty browser page.
+
 ## [0.1.0] - 2026-10-04
 
 First release: Geekatplay 3D Layers for Photoshop, brought to Krita.

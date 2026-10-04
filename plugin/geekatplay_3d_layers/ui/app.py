@@ -229,12 +229,19 @@ class Plugin:
         self._open_tasks({"kind": "thumbnails"}, "Rendering previews in the browser…")
 
     def _open_tasks(self, task: Dict[str, Any], message: str) -> None:
+        self._check_web_files()
         session = self.server.open_session("tasks", {"task": task})
         how = browser.open_page(self.server.url(session, "tasks.html"), self.settings["editor"]["window"] == "app", size=(520, 260), log=self.log)
         self.log.info(f"Task page ({task['kind']}) opened in the {how}")
         self.toast(message)
 
     # --------------------------------------------------------- 3D editor
+
+    def _check_web_files(self) -> None:
+        # A copy made from the project's source code (for example Krita's "Import Python Plugin
+        # from Web" with the repository address) has no built editor.
+        if not (WEB_DIR / "editor.html").is_file():
+            raise krita_doc.DocError("The 3D editor files are missing from this copy of the plugin. Install it from the release ZIP (Geekatplay-3D-Layers-Krita.zip); the user guide explains how.")
 
     def _model_init(self, item: Dict[str, Any]) -> Dict[str, Any]:
         return {"libraryId": item["id"], "name": item["name"], "url": f"./library/{item['modelFile']}", "file": item["modelFile"], "sizeBytes": item.get("sizeBytes", 0)}
@@ -290,6 +297,7 @@ class Plugin:
         self._open_editor(init, target, item)
 
     def _open_editor(self, init: Dict[str, Any], target: Dict[str, Any], item: Dict[str, Any]) -> None:
+        self._check_web_files()
         if self.editor and not self.editor.closed:
             self._end_editor("Another model was opened in the 3D editor.")
         session = self.server.open_session("editor", {"init": init, "target": target, "item": item})

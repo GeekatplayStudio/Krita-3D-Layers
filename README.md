@@ -49,7 +49,9 @@ You need **Krita 5.2 or newer** (Krita 6 works too) and Microsoft Edge or Google
 
 4. **Open Krita**, open or create an image, and choose **Settings › Dockers › 3D Layers**. The panel appears on the right.
 
-**Prefer Krita's own way?** In Krita: **Tools › Scripts › Import Python Plugin from File…**, pick the downloaded ZIP, answer **Yes** when it asks to enable the plugin, and restart Krita.
+**Prefer Krita's own way?** In Krita: **Tools › Scripts › Import Python Plugin from File…** (not *from Web*), pick the downloaded ZIP, answer **Yes** to *Enable plugins now?*, and restart Krita.
+
+Step-by-step instructions with every prompt you may see are in the [user guide](docs/USER_GUIDE.md#2-install-the-plugin).
 
 To remove it: double-click **Uninstall on Windows.cmd** (Mac/Linux: `sh install/install-unix.sh --uninstall`), or untick it in **Settings › Configure Krita › Python Plugin Manager**. Your models and keys are kept.
 

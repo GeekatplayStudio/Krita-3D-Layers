@@ -1,6 +1,6 @@
 {
   "name": "geekatplay-3d-layers-krita",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "Krita plugin: turn layers into 3D models (Meshy, Tripo, Hitem3D, ComfyUI), keep a local model library shared with the Photoshop plugin, and place posed + relit renders as re-editable layers.",
   "author": "Geekatplay Studio",

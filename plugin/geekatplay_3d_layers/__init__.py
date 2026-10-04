@@ -8,7 +8,7 @@ Outside Krita (the tests) only the core package is used, so nothing here may fai
 """
 import os
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 try:
     from krita import DockWidgetFactory, DockWidgetFactoryBase, Krita  # type: ignore

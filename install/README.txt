@@ -11,8 +11,10 @@ INSTALL (pick one)
             (if macOS says it cannot check the file: right-click it, choose Open, then Open).
   Linux:    close Krita, then run:  sh "Install on Linux.sh"
 
-  Or, from inside Krita: Tools > Scripts > Import Python Plugin from File..., choose this ZIP,
-  answer Yes to enable it, and restart Krita.
+  Or, from inside Krita: Tools > Scripts > Import Python Plugin from File... (not "from Web"),
+  choose this ZIP, answer Yes to "Enable plugins now?", and restart Krita.
+
+  Check: Settings > Configure Krita... > Python Plugin Manager lists "Geekatplay 3D Layers" with a tick.
 
 START
 
