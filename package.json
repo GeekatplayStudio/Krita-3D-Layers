@@ -1,0 +1,47 @@
+{
+  "name": "geekatplay-3d-layers-krita",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Krita plugin: turn layers into 3D models (Meshy, Tripo, Hitem3D, ComfyUI), keep a local model library shared with the Photoshop plugin, and place posed + relit renders as re-editable layers.",
+  "author": "Geekatplay Studio",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "dev": "vite --config vite.config.ts",
+    "build": "node scripts/build.mjs",
+    "package": "node scripts/package.mjs",
+    "dist": "node scripts/build.mjs && node scripts/package.mjs",
+    "install:krita": "node scripts/build.mjs && node scripts/install-dev.mjs",
+    "sync-web": "node scripts/sync-web.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "python -m pytest -q",
+    "verify": "npm run typecheck && npm test && npm run dist",
+    "test:krita": "python tests/krita/run.py"
+  },
+  "dependencies": {
+    "@pmndrs/assets": "^1.7.0",
+    "@react-three/drei": "^10.7.8",
+    "@react-three/fiber": "^9.5.0",
+    "fflate": "^0.8.2",
+    "lucide-react": "^0.562.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "three": "^0.185.1",
+    "three-stdlib": "^2.36.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@types/three": "^0.185.4",
+    "@vitejs/plugin-react": "^6.1.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.2"
+  }
+}

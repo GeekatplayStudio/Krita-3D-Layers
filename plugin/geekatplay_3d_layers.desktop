@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=Krita/PythonPlugin
+X-KDE-Library=geekatplay_3d_layers
+X-Python-2-Compatible=false
+X-Krita-Manual=Manual.html
+Name=Geekatplay 3D Layers
+Comment=Turn layers into 3D models (Meshy, Tripo, Hitem3D, ComfyUI), pose and light them in a 3D editor, and place them as layers you can re-pose any time.

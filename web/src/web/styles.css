@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/*
+ * Theme tokens. Names match ImageExpress (bg-card, text-muted-foreground, bg-primary…)
+ * so the ported 3D editor keeps its classes. Values follow Photoshop's panel colours;
+ * html[data-theme="light"|"lightest"] switches to Photoshop's light UI.
+ */
+@theme {
+    --color-background: var(--ps-bg);
+    --color-foreground: var(--ps-fg);
+    --color-card: var(--ps-card);
+    --color-muted: var(--ps-muted);
+    --color-muted-foreground: var(--ps-muted-fg);
+    --color-secondary: var(--ps-secondary);
+    --color-border: var(--ps-border);
+    --color-input: var(--ps-input);
+    --color-primary: var(--ps-accent);
+    --color-primary-foreground: #ffffff;
+    --color-danger: #e5484d;
+    --color-success: #30a46c;
+    --color-warning: #f5a524;
+    --font-sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+:root {
+    --ps-bg: #323232;
+    --ps-fg: #e6e6e6;
+    --ps-card: #2b2b2b;
+    --ps-muted: #3d3d3d;
+    --ps-muted-fg: #a8a8a8;
+    --ps-secondary: #454545;
+    --ps-border: #4a4a4a;
+    --ps-input: #262626;
+    --ps-accent: #2680eb;
+    color-scheme: dark;
+}
+html[data-theme="darkest"] {
+    --ps-bg: #1e1e1e;
+    --ps-card: #191919;
+    --ps-muted: #2c2c2c;
+    --ps-secondary: #353535;
+    --ps-border: #3a3a3a;
+    --ps-input: #141414;
+}
+html[data-theme="light"],
+html[data-theme="lightest"] {
+    --ps-bg: #e8e8e8;
+    --ps-fg: #1f1f1f;
+    --ps-card: #f3f3f3;
+    --ps-muted: #dadada;
+    --ps-muted-fg: #5c5c5c;
+    --ps-secondary: #cfcfcf;
+    --ps-border: #c4c4c4;
+    --ps-input: #ffffff;
+    color-scheme: light;
+}
+html[data-theme="lightest"] {
+    --ps-bg: #f5f5f5;
+    --ps-card: #ffffff;
+}
+
+html,
+body,
+#root {
+    margin: 0;
+    height: 100%;
+    background: var(--ps-bg);
+    color: var(--ps-fg);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+}
+
+input,
+select,
+textarea {
+    user-select: text;
+}
+
+/* Transparent-background indicator behind the 3D canvas. */
+.checkerboard {
+    background-color: #2a2a2a;
+    background-image: linear-gradient(45deg, #333 25%, transparent 25%), linear-gradient(-45deg, #333 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #333 75%), linear-gradient(-45deg, transparent 75%, #333 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--ps-secondary);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+input[type="range"] {
+    accent-color: var(--ps-accent);
+}
